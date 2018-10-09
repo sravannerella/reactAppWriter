@@ -1,0 +1,49 @@
+.mw-500{
+    max-width: 500px;
+}
+
+.w-400{
+    width: 400px;
+}
+
+label{
+    font-size: 14px;
+}
+
+.h-400{
+    height: 400px;
+}
+
+.h-100vh{
+    height: 100vh;
+}
+
+.border-15{
+    border-radius: 15px;
+}
+
+.w-75px{
+    width: 75px;
+}
+
+input[type="text"], input[type="password"]{
+    border: none;
+    outline: none;
+    border-bottom: 1px solid #3f51b5;
+    opacity: 0.5;
+    transition: 0.3s all ease-in-out;
+}
+
+input[type="text"].success, input[type="password"].success{
+    border-bottom: 1px solid #4caf50;
+    opacity: 1;
+}
+
+input::placeholder{
+    color: #ccc;
+}
+
+input[type="text"].error, input[type="password"].error{
+    border-bottom: 1px solid #c62828;
+    opacity: 1;
+}
