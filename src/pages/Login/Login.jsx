@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import './../style.css';
 import { Link } from 'react-router-dom';
+import { Auth } from './../../providers/Auth/auth';
 
 export default class Login extends Component{
 
@@ -38,7 +39,12 @@ export default class Login extends Component{
             this.setState({
                 canlogin: true
             });
-            this.props.history.push('/signup');
+            Auth.authenticate( () => {
+                console.log("Sucess");
+            }, () => {
+                console.log("Failure");
+            });
+            this.props.history.push('/home');
         }
     }
 
