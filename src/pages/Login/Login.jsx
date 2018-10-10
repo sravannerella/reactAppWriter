@@ -7,9 +7,6 @@ export default class Login extends Component{
 
     constructor(props){
         super(props);
-        if( JSON.parse(localStorage.getItem('authenticated')) === true ) {
-            this.props.history.push('/home');
-        }
 
         this.state = {
             email: '',
