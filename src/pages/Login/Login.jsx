@@ -5,8 +5,12 @@ import { Auth } from './../../providers/Auth/auth';
 
 export default class Login extends Component{
 
-    constructor(){
-        super();
+    constructor(props){
+        super(props);
+        if( JSON.parse(localStorage.getItem('authenticated')) === true ) {
+            this.props.history.push('/home');
+        }
+
         this.state = {
             email: '',
             isValidEmail: true,
@@ -39,9 +43,9 @@ export default class Login extends Component{
             this.setState({
                 canlogin: true
             });
-            Auth.authenticate( () => {
-                console.log("Sucess");
-            }, () => {
+            Auth.authenticate( (data) => {
+                console.log("Sucess", data);
+            }, (err) => {
                 console.log("Failure");
             });
             this.props.history.push('/home');

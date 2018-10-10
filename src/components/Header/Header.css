@@ -2,3 +2,38 @@
     width: 30px;
     height: 30px;
 }
+
+.img-40{
+    width: 40px;
+    height: 40px;
+}
+
+button[aria-expanded='true']{
+    box-shadow: 0 .5rem 1rem .25rem rgba(0,0,0,.15) !important;
+}
+
+button[aria-expanded='true']:hover{
+    box-shadow: 0 .5rem 1rem .25rem rgba(0,0,0,.15) !important;
+    border: 0px solid #000;
+}
+/* .btn-secondary.focus, .btn-secondary:focus{
+    box-shadow: 0 .5rem 1rem .25rem rgba(0,0,0,.15) !important;
+} */
+
+.dropdown, .dropleft, .dropright, .dropup{
+    position: inherit;
+}
+
+.border-radius-20{
+    border-radius: 20px !important;
+}
+
+.border-radius-b-10{
+    border-bottom-left-radius: 10px !important;
+    border-bottom-right-radius: 10px !important;
+}
+
+.border-radius-t-10{
+    border-top-left-radius: 10px !important;
+    border-top-right-radius: 10px !important;
+}
