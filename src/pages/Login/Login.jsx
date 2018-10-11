@@ -45,7 +45,7 @@ export default class Login extends Component{
             }, (err) => {
                 console.log("Failure");
             });
-            this.props.history.push('/home');
+            this.props.history.push('/home/analytics');
         }
     }
 

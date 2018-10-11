@@ -33,7 +33,7 @@ class Header extends Component{
     render(){
         return(
             <nav className="navbar navbar-light">
-                <Link to="/home" className="navbar-brand text-muted">
+                <Link to="/home/analytics" className="navbar-brand text-muted">
                     <img src={logo} className="d-inline-block align-top img-30 ml-2 mr-3" alt="Logo"/>
                     Neutron
                 </Link>
@@ -44,9 +44,9 @@ class Header extends Component{
                         <DropdownToggle className="rounded-circle img-40 bg-info text-center text-white border-0">
                             S
                         </DropdownToggle>
-                        <DropdownMenu className="border-0 shadow rounded border-radius-20">
-                            <DropdownItem className="py-2 border-radius-t-10"><i className="fas fa-user mr-2 text-muted"></i>Profile</DropdownItem>
-                            <DropdownItem className="py-2 border-radius-b-10" onClick={this.signout.bind(this)}><i className="fas fa-sign-out-alt mr-2 text-muted"></i>Sign Out</DropdownItem>
+                        <DropdownMenu className="border-0 shadow rounded">
+                            <DropdownItem className="py-2"><i className="fas fa-user mr-2 text-muted"></i>Profile</DropdownItem>
+                            <DropdownItem className="py-2" onClick={this.signout.bind(this)}><i className="fas fa-sign-out-alt mr-2 text-muted"></i>Sign Out</DropdownItem>
                         </DropdownMenu>
                     </Dropdown>
 

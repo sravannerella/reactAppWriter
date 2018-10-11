@@ -19,7 +19,7 @@ label{
 }
 
 .border-15{
-    border-radius: 15px;
+    border-radius: 15px !important;
 }
 
 .w-75px{

@@ -1,5 +1,5 @@
 export const Auth = {
-    isAuthenticated: JSON.parse(localStorage.getItem('authenticated')),
+    isAuthenticated: (JSON.parse(localStorage.getItem('authenticated')) === null ? false : true),
     authenticate(cb){
         let val = JSON.parse(localStorage.getItem('authenticated'));
         if(val === null || val){

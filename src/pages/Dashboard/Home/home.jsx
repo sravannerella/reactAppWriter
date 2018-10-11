@@ -1,8 +1,13 @@
 import React, {Component} from 'react';
-import './../../style.css';
-import {BrowserRouter as Router, Route, Link, Switch} from 'react-router-dom';
+import './home.css';
 import Header from '../../../components/Header/Header';
-import Test from '../../../components/Test/test';
+import SideMenu from '../../../components/SideMenu/Sidemenu';
+import Analytics from '../Analytics/Analytics';
+import Users from '../Users/Users';
+import { PrivateRoute } from '../../../router/PrivateRouter';
+// import {Redirect} from 'react-router-dom';
+import Datasets from '../Datasets/Datasets';
+import Settings from '../Settings/Settings';
 
 export default class Home extends Component{
 
@@ -10,13 +15,14 @@ export default class Home extends Component{
         return(
             <div>
                 <Header></Header>
-                <Link to="/home1">BEST</Link>
-                <Router>
-                    <Switch>
-                        <Route exact path="/home" component={() => <Test text="test"/>}></Route>
-                        <Route exact path="/home1" component={() => <Test text="BEST"/>}></Route>
-                    </Switch>
-                </Router>
+                <div className="d-flex">
+                    <SideMenu></SideMenu>
+                    <PrivateRoute exact path='/home/analytics' component={Analytics} />
+                    <PrivateRoute exact path='/home/users' component={Users} />
+                    <PrivateRoute exact path='/home/datasets' component={Datasets} />
+                    <PrivateRoute exact path='/home/settings' component={Settings} />
+                    {/* <Redirect to='/home/analytics' /> */}
+                </div>
             </div>
         );
     }
