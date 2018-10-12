@@ -8,11 +8,17 @@ export default class SideMenu extends Component {
 
     constructor(props){
         super(props);
-        let path = window.location.pathname;
-        let paths = path.split('/');
-        console.log(paths[2]);
-        path = paths[2];
+        this.state = {
+            store: props.store,
+            isSidebarOpen: 0
+        }
         this.deselectAll = this.deselectAll.bind(this);
+    }
+
+    componentWillReceiveProps(){
+        this.setState({
+            isSidebarOpen: this.props.store.getState()
+        });
     }
 
     deselectAll(){
@@ -26,31 +32,31 @@ export default class SideMenu extends Component {
 
     isSelected(e) {
         this.deselectAll();
-        e.target.classList.add('active');
+        e.currentTarget.children[0].classList.add('active');
     }
 
     render() {
         return (
-            <div className="w-250 bg-light h-100vh">
+            <div className={ this.state.isSidebarOpen ? "w-250 bg-light h-100vh" : "w-75px bg-light h-100vh"}>
                 <ul id="sidebar" className="sidebar-nav p-0">
-                    <Link to='/home/analytics'>
-                        <li className="py-3 px-4" onClick={this.isSelected.bind(this)}>
-                            <i className="fas fa-tachometer-alt mr-3"></i> Dashboard
+                    <Link to='/home/analytics' onClick={this.isSelected.bind(this)}>
+                        <li className="py-3 px-4">
+                            <i className="fas fa-tachometer-alt mr-3"></i> <span className={this.state.isSidebarOpen === 0 ? "hide-on-small" : ''}>Dashboard</span>
                         </li>
                     </Link>
-                    <Link to='/home/datasets'>
-                        <li className="py-3 px-4" onClick={this.isSelected.bind(this)}>
-                            <i className="fas fa-archive mr-3"></i> Datasets
+                    <Link to='/home/datasets' onClick={this.isSelected.bind(this)}>
+                        <li className="py-3 px-4">
+                            <i className="fas fa-archive mr-3"></i> <span className={this.state.isSidebarOpen === 0 ? "hide-on-small" : ''}>Datasets</span>
                         </li>
                     </Link>
-                    <Link to='/home/users'>
-                        <li className="py-3 px-4" onClick={this.isSelected.bind(this)}>
-                            <i className="fas fa-users mr-3"></i> Users
+                    <Link to='/home/users' onClick={this.isSelected.bind(this)}>
+                        <li className="py-3 px-4">
+                            <i className="fas fa-users mr-3"></i> <span className={this.state.isSidebarOpen === 0 ? "hide-on-small" : ''}>Users</span>
                         </li>
                     </Link>
-                    <Link to='/home/settings'>
-                        <li className="py-3 px-4" onClick={this.isSelected.bind(this)}>
-                            <i className="fas fa-cogs mr-3"></i> Settings
+                    <Link to='/home/settings' onClick={this.isSelected.bind(this)}>
+                        <li className="py-3 px-4">
+                            <i className="fas fa-cogs mr-3"></i> <span className={this.state.isSidebarOpen === 0 ? "hide-on-small" : ''}>Settings</span>
                         </li>
                     </Link>
                 </ul>

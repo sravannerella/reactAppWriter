@@ -10,7 +10,8 @@ class Header extends Component{
     constructor(props){
         super(props);
         this.state = {
-            dropdownOpen: false
+            dropdownOpen: false,
+            store: (props.store ? props.store : null)
         }
         this.toggle = this.toggle.bind(this);
     }
@@ -30,9 +31,18 @@ class Header extends Component{
         }));
     }
 
+    changeSideBarState(){
+        return this.state.store.getState() === 0 ? this.state.store.dispatch({type: 'open'}) : this.state.store.dispatch({type: 'close'});
+    }
+
     render(){
         return(
             <nav className="navbar navbar-light">
+
+                <div onClick={this.changeSideBarState.bind(this)}>
+                    <i className="fas fa-bars fa-2x"></i>
+                </div>
+
                 <Link to="/home/analytics" className="navbar-brand text-muted">
                     <img src={logo} className="d-inline-block align-top img-30 ml-2 mr-3" alt="Logo"/>
                     Neutron
