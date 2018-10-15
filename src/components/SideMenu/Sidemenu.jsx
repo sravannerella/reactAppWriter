@@ -37,7 +37,7 @@ export default class SideMenu extends Component {
 
     render() {
         return (
-            <div className={ this.state.isSidebarOpen ? "w-250 bg-light h-100vh" : "w-75px bg-light h-100vh"}>
+            <div className={ this.state.isSidebarOpen ? "w-250 bg-light h-100vh min-w-250" : "w-75px bg-light h-100vh d-xs-none"}>
                 <ul id="sidebar" className="sidebar-nav p-0">
                     <Link to='/home/analytics' onClick={this.isSelected.bind(this)}>
                         <li className="py-3 px-4">

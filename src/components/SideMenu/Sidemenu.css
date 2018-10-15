@@ -2,12 +2,22 @@
     width: 250px;
 }
 
+.min-w-250{
+    min-width: 250px;
+}
+
 .w-75px{
     width: 75px;
 }
 
 .hide-on-small{
     display: none;
+}
+
+@media screen and (max-width: 420px){
+    .d-xs-none{
+        display: none;
+    }
 }
 
 .h-100vh{
