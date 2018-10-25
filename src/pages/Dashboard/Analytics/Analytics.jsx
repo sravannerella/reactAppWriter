@@ -14,28 +14,28 @@ export default class Analytics extends Component{
 
                 <div className="bg-light py-3">
                     <div className="d-flex flex-wrap">
-                        <div className="rounded shadow-sm mx-2 my-3 bg-warning flex-grow-1">
+                        <div className="rounded shadow-sm mx-2 my-3 bg-warning block">
                             <div className="p-3">
                                 <p className="text-white text-center">Active Users</p>
                                 <LinesGraph></LinesGraph>
                             </div>
                         </div>
 
-                        <div className="rounded shadow-sm mx-2 my-3 bg-primary flex-grow-1">
+                        <div className="rounded shadow-sm mx-2 my-3 bg-primary block">
                             <div className="p-3">
                                 <p className="text-white text-center">Sales</p>
                                 <LinesGraph></LinesGraph>
                             </div>
                         </div>
 
-                        <div className="rounded shadow-sm mx-2 my-3 bg-danger flex-grow-1">
+                        <div className="rounded shadow-sm mx-2 my-3 bg-danger block">
                             <div className="p-3">
                                 <p className="text-white text-center">Customers</p>
                                 <LinesGraph></LinesGraph>
                             </div>
                         </div>
 
-                        <div className="rounded shadow-sm mx-2 my-3 bg-success flex-grow-1">
+                        <div className="rounded shadow-sm mx-2 my-3 bg-success block">
                             <div className="p-3">
                                 <p className="text-white text-center">Workers</p>
                                 <LinesGraph></LinesGraph>

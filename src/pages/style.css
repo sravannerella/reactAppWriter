@@ -83,7 +83,7 @@ textarea::placeholder{
 }
 
 
-@media screen and (max-width: 900px){
+@media screen and (max-width: 879px){
     .img-450{
         height: 100%;
     }
@@ -92,14 +92,26 @@ textarea::placeholder{
         border: 0px solid #ccc !important;
         padding: 0px !important;
     }
+    .block{
+        width: 100%;
+    }
 }
 
-@media screen and (min-width: 900px){
+@media screen and (min-width: 1000px){
     .title-placeholder{
         border-bottom: 0px solid #000 !important; 
         border-left: 2px solid #ccc !important;
         padding: 10px;
         opacity: 1 !important;
+    }
+    .block{
+        width: 23.5%;
+    }
+}
+
+@media (max-width: 1200px) and (min-width: 880px){
+    .block{
+        width: 48%;
     }
 }
 
