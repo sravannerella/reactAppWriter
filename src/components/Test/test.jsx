@@ -1,14 +1,11 @@
 import React, {Component} from 'react';
 
 export default class Test extends Component{
-    constructor(props){
-        super(props);
-        console.log(this.props);
-    }
-
     render(){
         return(
-            <h1>{this.props.text}</h1>
+            <div className="shadow h-400 p-3">
+                <h1 className="text-center">{this.props.text}</h1>
+            </div>
         );
     }
 }

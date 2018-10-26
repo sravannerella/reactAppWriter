@@ -49,12 +49,11 @@ class Header extends Component{
                 </Link>
                 
                 <div className="navbar-brand">
-
                     <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle} direction='down'>
                         <DropdownToggle className="rounded-circle img-40 bg-info text-center text-white border-0">
                             S
                         </DropdownToggle>
-                        <DropdownMenu className="border-0 shadow rounded">
+                        <DropdownMenu className="border-0 card-shadow rounded">
                             <DropdownItem className="py-2"><i className="fas fa-user mr-2 text-muted"></i>Profile</DropdownItem>
                             <DropdownItem className="py-2" onClick={this.signout.bind(this)}><i className="fas fa-sign-out-alt mr-2 text-muted"></i>Sign Out</DropdownItem>
                         </DropdownMenu>
