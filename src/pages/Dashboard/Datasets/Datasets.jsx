@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
-import Test from './../../../components/Test/test';
+import ImgCard from '../../../components/ImgCard/ImgCard';
+import fire from './../../../providers/Firebase/fire';
 
 export default class Datasets extends Component {
 
@@ -9,8 +10,22 @@ export default class Datasets extends Component {
         super(props);
         this.state = {
             image: "http://www.palazzodellemisture.it/wp-content/uploads/2017/01/placeholder.jpg",
-            text: ""
+            text: "",
+            firebase: null
         }
+    }
+
+    componentWillMount() {
+        this.setState({
+            firebase: fire.database()
+        });
+    }
+
+    componentDidMount() {
+        var ref = this.state.firebase.ref().child('/writings');
+        ref.on('value', (snapshot) => {
+            console.log("Snapshot: ", snapshot.val());
+        });
     }
 
     textChanged = (value) => {
@@ -31,27 +46,26 @@ export default class Datasets extends Component {
         ]
     }
 
-    // imgChange = (files) => {
-    //     console.log("Image changed: ", files);
-    //     let file = new FileReader();
-    //     if(files.length > 0){
-    //         file.onload = (e) => {
-    //             this.setState({
-    //                 image: e.target.result
-    //             })
-    //         }
-    //         file.readAsDataURL(files[0]);
-    //     } else {
-    //         this.setState({
-    //             image: "http://www.palazzodellemisture.it/wp-content/uploads/2017/01/placeholder.jpg"
-    //         })
-    //     }
-    // }
-
-    // imgUpload = () => {
-    //     console.log("Image upload");
-    //     this.refs.fileOpener.click();
-    // }
+    addWriting() {
+        
+        fire.auth()
+        .signInWithEmailAndPassword("admin@writer.com", "Pokemonem12345")
+        .then( (confirm) => {
+            console.log("Confirmed", confirm);
+            var timestamp = + new Date();
+            this.state.firebase.ref().child('/writings').push({
+                author: "Sravan Nerella",
+                content: this.state.text,
+                coverImg: this.state.image,
+                published: true,
+                createdOn: timestamp,
+                title: "TEST TITLE"
+            });
+        })
+        .catch( (err) => {
+            console.log("Err", err.message, " Code: " ,err.code);
+        });
+    }
 
     render() {
         return (
@@ -63,11 +77,11 @@ export default class Datasets extends Component {
 
                 <div className="mx-4 mb-3 mt-2">
                     <div className="row">
-                        <div className="col-sm-12 col-md-8">
+                        <div className="col-sm-12 col-md-7">
                             <ReactQuill onChange={this.textChanged} value={this.state.text} modules={this.modules}/>
                         </div>
-                        <div className="col-sm-12 col-md-4">
-                            <Test text="Hello world" />
+                        <div className="col-sm-12 col-md-5">
+                            <ImgCard addWriting={this.addWriting.bind(this)} text="Article Image" />
                         </div>
                     </div>
                 </div>
